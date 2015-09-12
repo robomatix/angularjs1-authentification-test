@@ -61,14 +61,14 @@
         };
 
         var _fillAuthData = function () {
-            /*
+
 
              var authData = localStorageService.get('authorizationData');
              if (authData) {
              _authentication.isAuth = true;
              _authentication.userName = authData.userName;
              }
-             */
+
 
         }
 

@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('authentification.app', ['ui.router','LocalStorageModule','authentification.controllers','authentification.services']);
+    var app = angular.module('authentification.app', ['ui.router', 'LocalStorageModule', 'authentification.controllers', 'authentification.services']);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         //
@@ -24,6 +24,14 @@
                 templateUrl: "views/logged.html"
             });
     });
-    app.run();
+/*
+    app.config(function ($httpProvider) {
+        $httpProvider.interceptors.push('authInterceptorService');
+    });
+*/
+
+    app.run(['authService', function (authService) {
+        authService.fillAuthData();
+    }]);
 
 })();

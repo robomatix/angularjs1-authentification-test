@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('authentification.app', ['ui.router']);
+    var app = angular.module('authentification.app', ['ui.router','authentification.controllers']);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         //
@@ -16,7 +16,12 @@
             })
             .state('login', {
                 url: "/login",
-                templateUrl: "views/login.html"
+                templateUrl: "views/login.html",
+                controller: "LoginController"
+            })
+            .state('logged', {
+                url: "/logged",
+                templateUrl: "views/logged.html"
             });
     });
     app.run();

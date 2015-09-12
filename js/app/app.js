@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('authentification.app', ['ui.router','authentification.controllers','authentification.services']);
+    var app = angular.module('authentification.app', ['ui.router','LocalStorageModule','authentification.controllers','authentification.services']);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         //

@@ -3,7 +3,7 @@
 
     var services = angular.module('authentification.services');
 
-    services.factory('authService', [ function () {
+    services.factory('authService', ['localStorageService',function (localStorageService) {
 
 
         var authServiceFactory = {};
@@ -12,9 +12,6 @@
             isAuth: false,
             userName: ""
         };
-
-
-
 
 
         var _login = function (loginData) {
@@ -41,10 +38,13 @@
              */
             if (loginData.userName === "login" && loginData.password === "mdp") {
 
-            _authentication.isAuth = true;
-            _authentication.userName = loginData.userName;
+                localStorageService.set('authorizationData', { token: 'monfauxtokenxxx777', userName: loginData.userName });
 
-                return true;}else{
+                _authentication.isAuth = true;
+                _authentication.userName = loginData.userName;
+
+                return true;
+            } else {
                 return false;
 
             }
@@ -53,7 +53,7 @@
         };
         var _logOut = function () {
 
-            // localStorageService.remove('authorizationData');
+            localStorageService.remove('authorizationData');
 
             _authentication.isAuth = false;
             _authentication.userName = "";

@@ -14,8 +14,11 @@
 
         $scope.login = function () {
 
-
-            $location.path('/logged');
+            if ($scope.loginData.userName === "login" && $scope.loginData.password === "mdp") {
+                $location.path('/logged');
+            } else {
+                $scope.message = "Erreur !!! Veuillez ressaisir vos identifiants";
+            }
 
 
         };

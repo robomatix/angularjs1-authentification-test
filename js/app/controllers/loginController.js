@@ -3,7 +3,7 @@
 
     var controllers = angular.module('authentification.controllers');
 
-    controllers.controller('LoginController', function ($rootScope, $scope, $location) {
+    controllers.controller('LoginController', function ($rootScope, $scope, $location,authService) {
 
         $scope.loginData = {
             userName: "",
@@ -14,7 +14,7 @@
 
         $scope.login = function () {
 
-            if ($scope.loginData.userName === "login" && $scope.loginData.password === "mdp") {
+            if(authService.login($scope.loginData)) {
                 $location.path('/logged');
             } else {
                 $scope.message = "Erreur !!! Veuillez ressaisir vos identifiants";

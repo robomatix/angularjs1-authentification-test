@@ -36,7 +36,7 @@
 
              return deferred.promise;
              */
-            if (loginData.userName === "login" && loginData.password === "mdp") {
+            if (loginData.password === "mdp") {
 
                 localStorageService.set('authorizationData', { token: 'monfauxtokenxxx777', userName: loginData.userName });
 

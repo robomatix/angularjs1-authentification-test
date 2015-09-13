@@ -35,7 +35,11 @@
 
         var authData = localStorageService.get('authorizationData');
         if (!authData) {
-            //$location.path('/login');
+            console.log('NOT logged');
+            $location.path('/login');
+
+        }else{
+            console.log('logged');
         }
 
         return true;
